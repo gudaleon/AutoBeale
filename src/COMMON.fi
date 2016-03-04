@@ -1,0 +1,76 @@
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c
+c	Common.inc
+c
+c	Common declarations for the BEALE program.
+c
+c
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+
+      logical*1 useflowpcnt
+      character*260 flowfilename,concfilename,stratfilename
+      integer*4 b(120)
+      integer*2 ij,a
+      integer strrct(64,4)
+
+      common/dglcom/b,ij,a,flowfilename,concfilename,stratfilename,strrct,useflowpcnt
+
+******************
+
+      integer flowstrat(8),timestrat(8)
+      real*4 flowtop(8),flowbot(8),timetop(8),timebot(8),llod,cint,degf
+      character*16 tribname,oldtribname,firstdate,oldfirstdate
+      logical*1 needs_work,firstyear,firsttime
+
+      common/bealecom/flowstrat,timestrat,flowtop,flowbot,timetop,timebot,llod,cint,degf,
+     &  tribname,oldtribname,firstdate,firstyear,firsttime,oldfirstdate,needs_work
+
+
+********************
+
+      real*8 flow(366),conc(366),mxflow(64),rn,concfac,flowfac,loadfac,
+     & maxflow,maxconc
+      real*4 flowpcttbl(0:200),scale,concscale
+      integer*4 ndays,nstratblocks,sdate(2,10),dates(366),stratum(366),strat(64,5),
+     &   nstrata,flowpct,calculation_number
+      character*64 param
+      character*12 year
+      character*2 year2
+      character*48 inputline
+
+      common /fldata/ flow,conc,mxflow,rn,concfac,flowfac,loadfac,strat,maxflow,maxconc,
+     +  flowpcttbl,scale,concscale,ndays,nstratblocks,sdate,dates,stratum,
+     +  nstrata,flowpct,calculation_number,param,inputline,year,year2
+
+********************
+
+      integer*2 mybound,bhi,blo,approach
+
+      common/trackcom/mybound,bhi,blo,approach
+
+********************
+      integer*4 firstday,lastday,currentstratum
+      real*4 kci(64),dayci(366)
+      logical*1 yesshowload,doneflag,is_auto,improved,
+     +  needs_adjusted,bigio
+
+      common/autostrat/firstday,lastday,currentstratum,kci,dayci,yesshowload,doneflag,
+     +  is_auto,improved,needs_adjusted,bigio
+
+
+**********************************
+
+      real*8  avflow,avload,cumfl,cumse,flowes(64),flowmu(64),f1,f2,f3,r(64),rmse(64),
+     +  sumf(64),sumfl(64),sumf2(64),suml(64),suml2(64),sumx3(64),sumx2y(64),sumxy2(64),
+     +  sxy,sx2,sy2,sx3,sx2y,sxy2,s1,s2,s3,
+     +  templ,fl1,fl2,tmp1,tmp2,tmp3,tmp4,df,ce1,ce2,
+     +  mse1,mse2,rf,tval,ci
+
+      integer*4  nf(64)
+
+      common/cb2com/avflow,avload,cumfl,cumse,flowes,flowmu,f1,f2,f3,r,rmse,
+     +  sumf,sumfl,sumf2,suml,suml2,sumx3,sumx2y,sumxy2,
+     +  sxy,sx2,sy2,sx3,sx2y,sxy2,s1,s2,s3,
+     +  templ,fl1,fl2,tmp1,tmp2,tmp3,tmp4,df,ce1,ce2,
+     +  mse1,mse2,rf,tval,ci,nf

@@ -1,0 +1,3 @@
+   River               Load, mt/yr         MSE       df         ±95% c.i.
+
+Rock96NO23              167.6035        118.9967     9.348         24.5393

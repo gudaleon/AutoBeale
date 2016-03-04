@@ -1,0 +1,161 @@
+#  Note:fed87b8c - This file not intended for hand editing.
+#
+#  Absoft Corporation Compiler Interface Makefile(v2.1.2).
+#
+#
+#  Type 'amake -f "AutoBeale.amk"' in this directory at the DOS prompt
+#  to execute this makefile. Type 'amake -f "AutoBeale.amk" cleanProjFiles' to
+#  remove old .obj, .exe, and .res files.
+#
+#
+#  This file was created by Absoft Developer Tools Interface.
+#  File created on: Tue Oct 20 14:07:55 1998
+#
+#
+
+
+
+#
+#  Variables and flags for the compiler(s) and linker.
+#
+F77COMPILER= F77
+F90COMPILER= F90
+C_COMPILER=  ACC
+CPPCOMPILER= ACC
+LINKER=      LNK
+
+F77_FLAGS=   -c -C -W -s 
+F90_FLAGS=   
+C_FLAGS=     
+CPP_FLAGS=   -Tp
+
+DFLT_LNK_FLG=-IGNOREDUPS -entry:_WinMainCRTStartup -aliases:UNICODE.ALS  \
+            -subsystem:windows 
+USER_LNK_FLG=-warn 
+LNK_FLAGS=   $(DFLT_LNK_FLG) $(USER_LNK_FLG)
+
+DEFINES=     
+C_DEFINES=   
+C_UNDEFS=    
+
+
+
+#
+#  Name of the executable.
+#
+TARGET=      AutoBeale.exe
+OUTDIR=      C:\Absoft60\AutoBeale
+OBJDIR=      C:\Absoft60\AutoBeale\objs
+
+#
+#  Files for this executable.
+#
+FFILES=      "C:\Absoft60\AutoBeale\autobeale.f"  \
+            "C:\Absoft60\AutoBeale\gui.f" "C:\Absoft60\AutoBeale\io.f"  \
+            "C:\Absoft60\AutoBeale\start.f" 
+F90FILES=    
+MODFILES=    
+CFILES=      
+RCFILES=     
+RESFILES=    
+HFILES=      "C:\Absoft60\AutoBeale\common.inc" 
+OBJS=        
+OTHERFILES=  
+MKFILE=      C:\Absoft60\AutoBeale\AutoBeale.amk
+
+#
+#  Libraries for this executable.
+#
+USER_LIBS=   
+DFLT_LIBS=   absRT0.lib kernel32.lib fio.lib fmath.lib comdlg32.lib f90math.lib libac.lib mrwe.lib ntinc.lib user32.lib gdi32.lib comdlg32.lib winmm.lib 
+LIBS=        $(USER_LIBS) $(DFLT_LIBS)
+
+
+
+#
+#  Include directories specified for this executable.
+#
+INCS=        -I"C:\Absoft60\AutoBeale" -I"A:" 
+LPATHS=      -path:"C:\Absoft60\AutoBeale" -path:"A:" 
+
+
+
+#
+#  Module file directories and flags specified for this executable.
+#
+MOD_FLAGS=   
+MOD_INCS=    
+
+
+
+#
+#  Rules and dependencies for the executable.
+#
+SRCFILES=    $(FFILES) $(F90FILES) $(CFILES) $(HFILES) $(RCFILES) $(RESFILES) $(OTHERFILES)
+RCRSFILES=   $(RESFILES) 
+
+OBJFILES=    $(OBJS) "$(OBJDIR)\autobeale.obj" "$(OBJDIR)\gui.obj"  \
+            "$(OBJDIR)\io.obj" "$(OBJDIR)\start.obj" 
+
+#
+#  Optional macros, rules and dependencies included from prebuild file.
+#
+
+
+#
+#  Default dependency for this makefile
+#
+default: "$(OUTDIR)\$(TARGET)"
+
+all: "$(OUTDIR)\$(TARGET)"
+
+
+"$(OUTDIR)\$(TARGET)": "$(OUTDIR)" "$(OBJDIR)" "$(MKFILE)" $(OBJFILES) $(RCRSFILES)
+	$(LINKER) $(LPATHS) -out:"$(OUTDIR)\$(TARGET)" \
+		$(OBJFILES) $(RCRSFILES) $(LIBS) $(LNK_FLAGS)
+#
+#  Optional commands, macros, rules and dependencies from postbuild file.
+#
+#  To append additional commands to the default target dependency 
+#  begin the first line of the postbuild file with a tab.
+#
+
+
+.rc.res:
+	$(RC) -fo $@ $(RCFLAGS) $<
+
+
+"$(OUTDIR)" :
+	if not exist "$(OUTDIR)\nul" mkdir "$(OUTDIR)"
+
+
+"$(OBJDIR)" :
+	if not exist "$(OBJDIR)\nul" mkdir "$(OBJDIR)"
+
+
+cleanProjFiles:
+	del "$(OBJDIR)\autobeale.obj"
+	del "$(OBJDIR)\gui.obj"
+	del "$(OBJDIR)\io.obj"
+	del "$(OBJDIR)\start.obj"
+	del "$(OUTDIR)\$(TARGET)"
+
+
+
+
+"$(OBJDIR)\autobeale.obj": "C:\Absoft60\AutoBeale\autobeale.f"
+	$(F77COMPILER) $(DEFINES) $(INCS) $(F77_FLAGS) -o "$(OBJDIR)\autobeale.obj" $(ADTI) "C:\Absoft60\AutoBeale\autobeale.f"
+
+
+"$(OBJDIR)\gui.obj": "C:\Absoft60\AutoBeale\gui.f"
+	$(F77COMPILER) $(DEFINES) $(INCS) $(F77_FLAGS) -o "$(OBJDIR)\gui.obj" $(ADTI) "C:\Absoft60\AutoBeale\gui.f"
+
+
+"$(OBJDIR)\io.obj": "C:\Absoft60\AutoBeale\io.f"
+	$(F77COMPILER) $(DEFINES) $(INCS) $(F77_FLAGS) -o "$(OBJDIR)\io.obj" $(ADTI) "C:\Absoft60\AutoBeale\io.f"
+
+
+"$(OBJDIR)\start.obj": "C:\Absoft60\AutoBeale\start.f"
+	$(F77COMPILER) $(DEFINES) $(INCS) $(F77_FLAGS) -o "$(OBJDIR)\start.obj" $(ADTI) "C:\Absoft60\AutoBeale\start.f"
+
+
