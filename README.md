@@ -31,7 +31,7 @@ The earlier code was presumably written by J. Clark, of the International Joint 
 ### References
 Baun, K., 1982. Alternative methods of estimating pollutant loads in flowing water: Technical Bulletin 133, Wisconsin Department of Natural Resources, p. 1–16.
 
-Konrad, J., Chesters, G., and K Bauer, 1978. Menomonee River Pilot Watershed Study, International Joint Commission, Great Lakes Basin Commission,  
+Konrad, J., Chesters, G., and K Bauer, 1978. Menomonee River Pilot Watershed Study, International Joint Commission, Reference Group on Pollution from Land Use Activities (PLUARG), 90p. 
 
 Tin, M., 1965. Comparison of some ratio estimators: Journal of the American Statistical Association, p. 294–307.
 
